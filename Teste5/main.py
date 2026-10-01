@@ -69,8 +69,9 @@ with sync_playwright() as p:
                 page.click("#btndownlistnfse2")
                 
             download = download_info.value
-            
-            caminho_final = os.path.join(nome_da_pasta, download.suggested_filename)
+
+            nome_arquivo = usuario_atual + os.path.splitext(download.suggested_filename)[1]
+            caminho_final = os.path.join(nome_da_pasta, nome_arquivo)
             
             download.save_as(caminho_final)
             
